@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Vehicle</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+</head>
+<body>
+    <h1>Update Vehicle</h1>
+    <form method="POST" action="{% url 'vehicleupdate' dataid=data.id %}">
+        {% csrf_token %}
+        <div class="form-group">
+                      <label for="exampleInputName1">Name</label>
+                      <input type="text" class="form-control" id="exampleInputName1" placeholder="Department Name" name="vname" value="{{data.number}}">
+                    </div>
+        <div class="form-group">
+                    <label for="exampleInputName1">Type</label>
+                      <input type="text" class="form-control" id="exampleInputName1" placeholder="Department Name" name="vtype" value="{{data.v_type}}">
+                    </div>
+
+        <div class="form-group">
+                    <label for="exampleInputName1">Model</label>
+                      <input type="text" class="form-control" id="exampleInputName1" placeholder="Department Name" name="vmodel" value="{{data.model}}">
+                    </div>
+
+
+        <div class="form-group">
+                      <label for="exampleTextarea1">Description</label>
+                        <textarea class="form-control" id="exampleTextarea1" rows="4" name="vdescription" >{{data.description}}</textarea>
+                    </div>
+
+        <button type="submit">Update</button>
+        <button type="submit">Cancel </button>
+
+    </form>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</body>
+</html>

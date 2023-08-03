@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vehicle Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+          crossorigin="anonymous">
+</head>
+<body>
+<h3 style="text-align:center;padding-top:20px;">List Of Vehicle</h3><br><br>
+
+<table style="width:100%" class="table table-striped table-hover">
+    <tr style="text-align:center">
+
+        <th>Name</th>
+        <th>Type</th>
+        <th>Model</th>
+        <th>Description</th>
+        <th>Options</th>
+
+    </tr>
+
+    {% for i in data %}
+
+    <tr style="text-align:center">
+        <td style="width:200px">{{ i.number }}</td>
+        <td style="width:200px">{{ i.v_type }}</td>
+        <td style="width:400px">{{ i.model }}</td>
+        <td style="width:400px">{{i.description}}</td>
+        <td style="width:400px">
+            <form action="{% url 'vehicleedit' dataid=i.id %}">
+                <button type="submit">Edit</button>
+            </form>
+        </td>
+
+        {% empty %}
+        <td>No vehicles found.</td>
+
+
+    </tr>
+
+    {% endfor %}
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+            crossorigin="anonymous"></script>
+</body>
+</html>
